@@ -1,4 +1,4 @@
-package com.repository;
+package com.entity.repository;
 
 import com.entity.Device;
 
@@ -7,15 +7,15 @@ import java.util.Optional;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface DeviceRepository extends MongoRepository<Device, Long> {
+public interface DeviceRepository extends MongoRepository<Device, Integer> {
 
     <S extends Device> S save(S device);
 
-    Optional<Device> findById(String id);
+    Optional<Device> findById(Integer _id);
 
-    boolean existsById(String id);
+    boolean existsById(Integer _id);
 
     List<Device> findAll();
 
-    void deleteById(String id);
+    void deleteById(Integer _id);
 }

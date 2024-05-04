@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Device {
 
     @Id
-    private Long id;
+    private Integer _id;
     private Integer batteryPower;
     private Boolean blue;
     private Double clockSpeed;
@@ -31,12 +31,13 @@ public class Device {
     private Boolean wifi;
     private Integer priceRange;
 
-    public Long getId() {
-        return id;
+    
+    public Integer getId() {
+        return _id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId(Integer _id) {
+        this._id = _id;
     }
 
     public Integer getBatteryPower() {
