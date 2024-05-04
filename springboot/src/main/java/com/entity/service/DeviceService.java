@@ -1,11 +1,13 @@
 package com.entity.service;
-
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import com.entity.Device;
+import java.util.Map;
+import java.util.List;
 
 @Service
 public class DeviceService {
@@ -15,13 +17,18 @@ public class DeviceService {
     
         HttpEntity<Device> requestEntity = new HttpEntity<>(device);
     
-        ResponseEntity<Device> responseEntity = restTemplate.exchange(
-            "http://localhost:5000/predict",
+        ResponseEntity<Map<String, List<Double>>> responseEntity = restTemplate.exchange(
+            "http://127.0.0.1:5000/predict",
             HttpMethod.POST,
             requestEntity,
-            Device.class
+            new ParameterizedTypeReference<Map<String, List<Double>>>() {}
         );
     
-        return responseEntity.getBody().getPriceRange();
+        List<Double> predictedPriceList = responseEntity.getBody().get("predictedPrice");
+        if (!predictedPriceList.isEmpty()) {
+            return predictedPriceList.get(0);
+        } else {
+            throw new RuntimeException("Predicted price list is empty");
+        }
     }
 }
