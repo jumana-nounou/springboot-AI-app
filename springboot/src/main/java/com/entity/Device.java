@@ -4,7 +4,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
-@Document
+@Document(collection = "test")
 public class Device {
 
     @Id
@@ -172,5 +172,40 @@ public class Device {
 
     public void setPriceRange(Integer priceRange) {
         this.priceRange = priceRange;
+    }
+
+    public void setPredictedPrice(double predictedPrice) {
+        this.priceRange = (int) predictedPrice;
+    }
+
+    public Double getClockSpeed() {
+        return clockSpeed;
+    }
+
+    public void setClockSpeed(Double clockSpeed) {
+        this.clockSpeed = clockSpeed;
+    }
+
+    public Boolean getDualSim() {
+        return dualSim;
+    }
+
+    public void setDualSim(Boolean dualSim) {
+        this.dualSim = dualSim;
+    }
+
+    public Integer getFc() {
+        return fc;
+    }
+
+    public void setFc(Integer fc) {
+        this.fc = fc;
+    }
+    public Boolean getBlue() {
+        return blue;
+    }
+
+    public void setBlue(Boolean blue) {
+        this.blue = blue;
     }
 }
