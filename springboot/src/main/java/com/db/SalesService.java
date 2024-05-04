@@ -5,6 +5,8 @@ import org.springframework.data.mongodb.core.aggregation.Aggregation;
 import org.springframework.data.mongodb.core.aggregation.AggregationResults;
 import org.springframework.data.mongodb.core.query.Criteria;
 
+import com.entity.Device;
+
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.Date;
@@ -14,6 +16,11 @@ public class SalesService {
 
     @Autowired
     private MongoTemplate mongoTemplate;
+
+    public double predictPrice(Device device) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'predictPrice'");
+    }
 
 
 }
