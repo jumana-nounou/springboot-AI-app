@@ -1,8 +1,10 @@
-import org.springframework.beans.factory.annotation.Autowired;
+package com.controller;
+
 import org.springframework.web.bind.annotation.*;
-
+import com.entity.Device;
+import com.repository.DeviceRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
-
 @RestController
 @RequestMapping("/api/devices")
 public class DeviceController {
