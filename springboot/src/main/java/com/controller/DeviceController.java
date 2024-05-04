@@ -17,10 +17,10 @@ public class DeviceController {
         return deviceRepository.findAll();
     }
 
-    @GetMapping("/{id}")
-    public Device getDeviceById(@PathVariable Long id) {
-        return deviceRepository.findById(id).orElse(null);
-    }
+    // @GetMapping("/{id}")
+    // public Device getDeviceById(@PathVariable Long id) {
+    //     return deviceRepository.findById(id).orElse(null);
+    // }
 
     @PostMapping
     public Device addDevice(@RequestBody Device device) {

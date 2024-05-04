@@ -1,9 +1,18 @@
 package com.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
 
 import com.entity.Device;
 
-public interface DeviceRepository extends JpaRepository<Device, Long> {
+public interface DeviceRepository extends MongoRepository<Device, Long> {
+
+    List<Device> findAll();
+
+    Optional<Device> findById(Long id);
+
+    Device save(Device device);
     
 }
